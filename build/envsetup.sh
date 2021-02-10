@@ -737,7 +737,7 @@ function push_update(){(
         cd $repopath
     else
         # Ask the maintainer for login details
-        read -p 'OSDN Username: ' uservar
+        read -p 'SouceForge username: ' uservar
 
         for devicename in $(ls $out_dir_base)
         do
@@ -802,9 +802,9 @@ function push_update(){(
     size=$(stat -c%s "$out_dir/$zipname")
     md5=$(md5sum "$out_dir/$zipname")
 
-    echo "Uploading build to OSDN"
+    echo "Uploading build to SourceForge"
 
-    scp $out_dir/$zipname ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
+    scp $out_dir/$zipname ${uservar}@frs.sourceforge.net:/home/pfs/project/revengeos/$target_device
 
     echo "Generating json"
 
